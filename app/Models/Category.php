@@ -34,6 +34,7 @@ class Category extends Model
         parent::boot();
 
         // Event "creating" dipanggil sebelum model disimpan (baru)
+        // AWALINYA : kuda zebra afrika-> kuda-zebra-afrika
         static::creating(function ($category) {
             if (empty($category->slug)) {
                 $category->slug = Str::slug($category->name);
