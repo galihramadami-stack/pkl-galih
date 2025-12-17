@@ -1,10 +1,6 @@
 <?php
-// ========================================
-// FILE: routes/web.php
-// FUNGSI: Mendefinisikan URL routes aplikasi
-// ========================================
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\GoogleController;
 
 // Route default (sudah ada)
 Route::get('/', function () {
@@ -40,3 +36,15 @@ Route::get('/kategori/{nama?}', function ($nama = 'Semua') {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::controller(GoogleController::class)->group(function () {
+     Route::get('/auth/google', 'redirect')
+        ->name('auth.google');
+        
+    Route::get('/auth/google', 'redirect')->name('auth.google');
+    Route::get('/auth/google/callback', 'callback');
+
+    
+});
