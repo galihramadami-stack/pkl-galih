@@ -37,3 +37,6 @@ Route::get('/kategori/{nama?}', function ($nama = 'Semua') {
 
 // http://localhost:8000/kategori/Elektronik
 // Output: "Menampilkan kategori: Elektronik"
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
